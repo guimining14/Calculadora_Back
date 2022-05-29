@@ -30,22 +30,21 @@ exports.calcular = (req, res) => {
         
     
         const historico = {}
-        historico.Opecacao = equacao
+        historico.Operacao = equacao
         historico.Resultado = resultado
         historico.UsuarioId = usuarioId
         historico.Data = today
         
         const query = 'insert into historico (Operacao, Resultado, UsuarioId, Data) values (?, ?, ?, ?)'
        
-        conexao.query(query, [historico.Opecacao, historico.Resultado, historico.UsuarioId, historico.Data], (err, result) => {
+        conexao.query(query, [historico.Operacao, historico.Resultado, historico.UsuarioId, historico.Data], (err, result) => {
           if (err){
             console.log(err)
             res.status(500)
             res.json({"message": "Internal Server Error"})
           } else {
             res.status(200)
-            res.json({ resultado : resultado})
-    
+            res.json(historico)   
 
           }
         })
