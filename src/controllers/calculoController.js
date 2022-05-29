@@ -1,6 +1,25 @@
 const conexao = require('../config/conexao')
 const { validationResult } = require('express-validator');
 
+exports.listarPorIsd = (req,res) => {
+    let usuarioId = req.params.id;
+
+    const query = 'select * from historico where usuarioId = ?';
+
+    conexao.query(query, [usuarioId], (err, result) => {
+        if (err){
+          console.log(err)
+          res.status(500)
+          res.json({"message": "Internal Server Error"})
+        } else {
+          res.status(200)
+          res.json(result)
+  
+
+        }
+      })
+
+}
 exports.calcular = (req, res) => {
  
     let equacao = req.body.equacao
