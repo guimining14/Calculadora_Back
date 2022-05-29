@@ -1,0 +1,14 @@
+Executar o script database/db_calculadora.sql para criar o banco de dados
+Configurar o env 
+# App
+PORT=[porta desejada]
+
+# MariaDB
+DB_HOST=[ip do servidor do MariaDB]
+DB_PORT=[porta do MariaDB]
+DB_USER=[usuario do banco de dados]
+DB_PASS=[senha do banco de dados]
+DB_NAME=db_calculadora
+
+Para executar 
+node src/index.js
